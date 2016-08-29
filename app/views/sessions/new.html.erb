@@ -1,0 +1,10 @@
+ <%= form_tag '/sessions' do %>
+  <%= label_tag :name %>
+  <%= text_field_tag 'user[name]' %><br>
+  <%= label_tag :password %>
+  <%= password_field_tag 'user[password]' %><br>
+  <%= submit_tag "Log In"%>
+<% end %>
+<%= flash[:message]  %>
+
+<p><%= link_to "New User Sign Up", new_user_path %></p>

@@ -1,0 +1,12 @@
+
+  <p><%= label_tag "Name:" %> <%= @user.name %></p>
+  <p><%= label_tag "Age:" %> <%= @user.age %></p>
+  <p><%= label_tag "Home State:" %> <%= @homestate %></p>
+
+
+  <% if session[:user_id] == @user.id %>
+    <p><%= link_to "Edit Information", edit_user_path(session[:user_id]) %></p>
+    <p><%= link_to "Create a New Post", new_post_path(session[:user_id]) %></p>
+    <p><%= link_to "See All Your Posts", post_path(session[:user_id]) %></p>
+    <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+  <%end %>
