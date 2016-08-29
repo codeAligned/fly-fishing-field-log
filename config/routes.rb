@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :states
   resources :posts
+  resources :stations
   resources :sessions, only: [:new, :create, :destroy]
   get '/home' => 'sessions#new', as: 'home'
 

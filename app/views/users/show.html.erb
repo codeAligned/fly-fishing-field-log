@@ -7,6 +7,16 @@
   <% if session[:user_id] == @user.id %>
     <p><%= link_to "Edit Information", edit_user_path(session[:user_id]) %></p>
     <p><%= link_to "Create a New Post", new_post_path(session[:user_id]) %></p>
-    <p><%= link_to "See All Your Posts", post_path(session[:user_id]) %></p>
+    <p><%= link_to "See All Your Posts", posts_path(session[:user_id]) %></p>
+
+    <br>
+    <br>
+
+    <p><%= link_to "See River Conditions", rivers_path(session[:user_id]) %></p>
+
+
     <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+
   <%end %>
+
+<!-- fix after creating new user, to be logged in as session -->

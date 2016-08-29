@@ -1,13 +1,5 @@
 class RiversController < ApplicationController
 
-  def new
-    @river = River.new
-  end
-
-  def create
-    @rivers = River.create(river_params)
-  end
-
   def index
     @rivers = River.all
   end
@@ -16,7 +8,7 @@ class RiversController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update

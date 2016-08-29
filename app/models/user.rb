@@ -2,10 +2,9 @@ class User < ApplicationRecord
   belongs_to :state
   has_many :rivers
 
+  validates_presence_of :name
   has_secure_password
 
-  validates_presence_of :name, :password
-  # def home_state=(state)
-  #   self.state_id = State.find_by(name: state.strip)
-  # end
 end
+
+#dont need both validates_presence_of AND has_secure_password

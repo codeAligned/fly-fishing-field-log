@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+
     @user = User.new
   end
 
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
+    binding.pry
     @user.save
     redirect_to user_path(@user)
   end
@@ -32,9 +34,10 @@ class UsersController < ApplicationController
     @user.age = params[:user][:age]
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
     @homestate = State.find_by(id: @user.state_id).name
+binding.pry
     @user.save
 
-    binding.pry
+
     redirect_to user_path(@user)
   end
 
@@ -47,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :age)
+    params.require(:user).permit(:name, :age, :password, :password_confirmation)
   end
 
 end
