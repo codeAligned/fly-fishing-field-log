@@ -1,10 +1,27 @@
-<h1>Select a River</h1>
-<%= form_for @rivers do |f| %>
-<p>
-  <%= f.label :name, 'Rivers' %>
-  <%= f.collection_select(River.all, :id, :name) %>
-</p>
-<%= f.submit "Create" %>
-<% end %>
-
-<!-- <%= f.collection_select(:state_id, State.all, :id, :name) %> -->
+<h1>Rivers</h1>
+<table class="river data">
+  <th>River Name</th>
+    <% @rivers.each do |river| %>
+      <tr>
+        <td id="river name">
+          <%= river.name %>
+        </td>
+      </tr>
+    <% end %>
+  <th>Station Name</th>
+  <th>Gage Height in feet</th>
+  <th>Discharge in ft3/s</th>
+    <% @stations.each do |station| %>
+      <tr>
+        <td id="station name">
+          <%= station.station_name %>
+        </td>
+        <td id="gage height">
+          <%= station.gage_height %>
+        </td>
+        <td id="discharge">
+          <%= station.discharge %>
+        </td>
+      </tr>
+    <% end %>
+</table>

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160829205607) do
 
   create_table "stations", force: :cascade do |t|
     t.string  "station_name"
-    t.integer "gage_height"
+    t.decimal "gage_height"
     t.integer "discharge"
     t.integer "river_id"
   end

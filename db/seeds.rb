@@ -1,3 +1,9 @@
+River.destroy_all
+Station.destroy_all
+State.destroy_all
+User.destroy_all
+
+
 State.create(name: "Alabama")
 State.create(name: "Alaska")
 State.create(name: "Arizona")
@@ -54,22 +60,22 @@ User.create(name: "Gina", age: 27, password: "enzo", state_id: State.find_by(nam
 User.create(name: "Sharon", age: 23, password: "fitz", state_id: State.find_by(name: "Wyoming").id)
 User.create(name: "Hannah", age: 29, password: "lyla", state_id: State.find_by(name: "Georgia").id)
 
-River.create(name: "Upper South Platte") #1
-River.create(name: "Clear") #2
-River.create(name: "St. Vrain") #3
-River.create(name: "Big Thompson") #4
-River.create(name: "Arkansas Headwaters") #5
-River.create(name: "Upper Arkansas") #6
-River.create(name: "Colorado") #7
-River.create(name: "Blue") #8
-River.create(name: "Roaring Fork") #9
-River.create(name: "Eagle") #10
-River.create(name: "East Taylor") #11
-River.create(name: "Gunnison") #12
-River.create(name: "San Miguel") #13
-River.create(name: "Yampa") #14
-River.create(name: "Animas") #15
-River.create(name: "San Juan") #16
+River.create(name: "UPPER SOUTH PLATTE") #1
+River.create(name: "CLEAR") #2
+River.create(name: "ST. VRAIN") #3
+River.create(name: "BIG THOMPSON") #4
+River.create(name: "ARKANSAS HEADWATERS") #5
+River.create(name: "UPPER ARKANSAS") #6
+River.create(name: "COLORADO") #7
+River.create(name: "BLUE") #8
+River.create(name: "ROARING FORK") #9
+River.create(name: "EAGLE") #10
+River.create(name: "EAST TAYLOR") #11
+River.create(name: "GUNNISON") #12
+River.create(name: "SAN MIGUEL") #13
+River.create(name: "YAMPA") #14
+River.create(name: "ANIMAS") #15
+River.create(name: "SAN JUAN") #16
 
 Station.create(station_name: "SOUTH PLATTE ABOVE CHEESMAN LAKE, CO", gage_height: 5.51, discharge: 227, river_id: 1)
 Station.create(station_name: "SOUTH PLATTE RIVER BLW BRUSH CRK NEAR TRUMBULL, CO", gage_height: 3.82, discharge: 331, river_id: 1)
