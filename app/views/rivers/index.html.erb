@@ -1,27 +1,30 @@
 <h1>Rivers</h1>
 <table class="river data">
   <th>River Name</th>
+  <th>Station Name</th>
+  <th>Gage Height in feet</th>
+  <th>Discharge in ft3/s</th>
     <% @rivers.each do |river| %>
       <tr>
         <td id="river name">
           <%= river.name %>
         </td>
       </tr>
-    <% end %>
-  <th>Station Name</th>
-  <th>Gage Height in feet</th>
-  <th>Discharge in ft3/s</th>
-    <% @stations.each do |station| %>
-      <tr>
-        <td id="station name">
-          <%= station.station_name %>
-        </td>
-        <td id="gage height">
-          <%= station.gage_height %>
-        </td>
-        <td id="discharge">
-          <%= station.discharge %>
-        </td>
-      </tr>
+      <% river.stations.each do |station| %>
+        <tr>
+          <td id="skip river th">
+            <%= " " %>
+          </td>
+          <td id="station name">
+            <%= station.station_name %>
+          </td>
+          <td id="gage height">
+            <%= station.gage_height %>
+          </td>
+          <td id="discharge">
+            <%= station.discharge %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
 </table>
