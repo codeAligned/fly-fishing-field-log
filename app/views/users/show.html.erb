@@ -12,7 +12,7 @@
     <br>
     <br>
 
-    <p><%= link_to "See River Conditions", rivers_path(session[:user_id]) %></p>
+    <p><%= link_to "See River Conditions", rivers_path %></p>
 
 
     <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>

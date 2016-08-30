@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-
     @user = User.new
   end
 
@@ -18,9 +17,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
-    binding.pry
     @user.save
-    redirect_to user_path(@user)
+    redirect_to new_session_path
+    flash[:message] = "Thanks for signing up, please log in!"
+
   end
 
   def edit
@@ -28,16 +28,12 @@ class UsersController < ApplicationController
   end
 
   def update
-
     @user = User.find(params[:id])
     @user.name = params[:user][:name]
     @user.age = params[:user][:age]
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
     @homestate = State.find_by(id: @user.state_id).name
-binding.pry
     @user.save
-
-
     redirect_to user_path(@user)
   end
 

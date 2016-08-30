@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     user = User.find_by(name: session_params[:name])
     if user && user.authenticate(session_params["password"])
       session[:user_id] = user.id
@@ -17,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to new_session_path
+    redirect_to home_path
   end
 
   private

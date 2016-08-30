@@ -1,0 +1,10 @@
+<h1>Select a River</h1>
+<%= form_for @rivers do |f| %>
+<p>
+  <%= f.label :name, 'Rivers' %>
+  <%= f.collection_select(River.all, :id, :name) %>
+</p>
+<%= f.submit "Create" %>
+<% end %>
+
+<!-- <%= f.collection_select(:state_id, State.all, :id, :name) %> -->
