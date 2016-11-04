@@ -1,22 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pokemon Gym</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+    <link href='https://fonts.googleapis.com/css?family=Frijole|Oregano:400,400italic|Bowlby+One+SC|Cherry+Swash:400,700' rel='stylesheet' type='text/css'>
 
-  <p><%= label_tag "Name:" %> <%= @user.name %></p>
-  <p><%= label_tag "Age:" %> <%= @user.age %></p>
-  <p><%= label_tag "Home State:" %> <%= @homestate %></p>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+        <% if session[:user_id] == @user.id %>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <a id="custom_nav" class="navbar-brand" href="<%= edit_user_path(session[:user_id]) %>"/>Edit Information</a>
+          <a id="custom_nav" class="navbar-brand" href="<%= rivers_path %>"/>See River Conditions</a>
+          <a id="custom_nav" class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <!--  nav here -->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      <div class="user_profile">
+        <%= render partial: "user_profile", object: @user, as: :user %>
+      </div>
+      <br>
+      <br>
+      <br>
+      <p><%= button_to "Create a New Post", new_post_path(session[:user_id]) %></p>
+      <p><%= button_to "See All Your Posts", posts_path(session[:user_id]) %></p>
+    <%end %>
+    </body>
+  </html>
 
-
-  <% if session[:user_id] == @user.id %>
-    <p><%= link_to "Edit Information", edit_user_path(session[:user_id]) %></p>
-    <p><%= link_to "Create a New Post", new_post_path(session[:user_id]) %></p>
-    <p><%= link_to "See All Your Posts", posts_path(session[:user_id]) %></p>
-
-    <br>
-    <br>
-
-    <p><%= link_to "See River Conditions", rivers_path %></p>
-
-
-    <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
-
-  <%end %>
 
 <!-- fix after creating new user, to be logged in as session -->
