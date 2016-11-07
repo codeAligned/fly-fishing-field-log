@@ -55,10 +55,22 @@ State.create(name: "West Virginia")
 State.create(name: "Wisconsin")
 State.create(name: "Wyoming")
 
+30.times do
+  name = Faker::Name.name
+  age = Faker::Number.between(18, 70)
+  state = Faker::Number.between(1, 50)
+  User.create(name: name, age: age, password: 'password', state_id: state)
+end
 
-User.create(name: "Gina", age: 27, password: "enzo", state_id: State.find_by(name: "Colorado").id)
-User.create(name: "Sharon", age: 23, password: "fitz", state_id: State.find_by(name: "Wyoming").id)
-User.create(name: "Hannah", age: 29, password: "lyla", state_id: State.find_by(name: "Georgia").id)
+20.times do
+  date = Faker::Date.between(2.days.ago, Date.today)
+  text = Faker::Hipster.paragraph
+  user_id = Faker::Number.between(1, 30)
+  Post.create(name: date, text: text, user_id: user_id)
+end
+# User.create(name: "Gina", age: 27, password: "enzo", state_id: State.find_by(name: "Colorado").id)
+# User.create(name: "Sharon", age: 23, password: "fitz", state_id: State.find_by(name: "Wyoming").id)
+# User.create(name: "Hannah", age: 29, password: "lyla", state_id: State.find_by(name: "Georgia").id)
 
 River.create(name: "UPPER SOUTH PLATTE") #1
 River.create(name: "CLEAR") #2

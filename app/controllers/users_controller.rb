@@ -15,11 +15,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.create(user_params)
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
     @user.save
-    redirect_to new_session_path
-    flash[:message] = "Thanks for signing up, please log in!"
+    current_user = @user
+    login(current_user)
+
+    redirect_to user_path(@user)
 
   end
 

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get '/home' => 'sessions#new', as: 'home'
 
   get '/logout' => 'sessions#destroy'
-  get '/:id/posts' => 'posts#index', as: 'userposts'
-###    url          controller#action
+  get '/users/:id/posts' => 'posts#userposts', as: 'userposts'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

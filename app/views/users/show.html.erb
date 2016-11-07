@@ -5,9 +5,9 @@
 
 
   <% if session[:user_id] == @user.id %>
-    <p><%= link_to "Edit Information", edit_user_path(session[:user_id]) %></p>
-    <p><%= link_to "Create a New Post", new_post_path(session[:user_id]) %></p>
-    <p><%= link_to "See All Your Posts", posts_path(session[:user_id]) %></p>
+    <p><%= link_to "Edit Information", edit_user_path(@user) %></p>
+    <p><%= link_to "Create a New Post", new_post_path %></p>
+    <p><%= link_to "See All Your Posts", userposts_path %></p>
 
     <br>
     <br>

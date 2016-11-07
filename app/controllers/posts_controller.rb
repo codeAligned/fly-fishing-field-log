@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(user_id: session[:user_id])
+    @posts = Post.all
   end
 
   def show
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.user_id = User.find_by(id: session[:user_id]).id
     @post.save
 
-    redirect_to posts_path(@post)
+    redirect_to userposts_path(@post)
   end
 
   def edit
@@ -34,6 +34,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to post_path(@post)
+  end
+
+  def userposts
+    #users/id/posts
+    #find the user and their id
+    @posts = Post.where(user_id: current_user.id)
+
+
+
   end
 
   private

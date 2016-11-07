@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(name: session_params[:name])
     if user && user.authenticate(session_params["password"])
-      session[:user_id] = user.id
+      login(user)
       redirect_to user_path(user)
     else
       flash[:message] = "Incorrect Password, please try again!"
