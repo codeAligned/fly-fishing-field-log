@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829205607) do
+ActiveRecord::Schema.define(version: 20161108183001) do
+
+  create_table "flies", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "color"
+    t.string   "dates"
+    t.string   "emergence"
+    t.string   "size"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string  "name"
