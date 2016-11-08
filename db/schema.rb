@@ -12,16 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20161108183001) do
 
-  create_table "flies", force: :cascade do |t|
-    t.string   "type"
+  create_table "hatches", force: :cascade do |t|
+    t.string   "bug_type"
     t.string   "name"
     t.string   "color"
     t.string   "dates"
     t.string   "emergence"
     t.string   "size"
+    t.string   "spinner_fall"
     t.integer  "state_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "posts", force: :cascade do |t|
