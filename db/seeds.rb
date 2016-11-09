@@ -190,3 +190,94 @@ Hatch.create(bug_type: "Terrestrial", name: "Dog Day Cicadas", color: "Black & O
 Hatch.create(bug_type: "Terrestrial", name: "Flying Black Ant", color: "Black", dates: "Aug 15 - Sep 15", emergence: "Mid Afternoon", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
 Hatch.create(bug_type: "Terrestrial", name: "Grasshopper", color: "Green to Brownish Tan", dates: "May 15 - Nov 15", emergence: "All Day", size: "2 - 14", spinner_fall: "N/A", state_id: 6)
 Hatch.create(bug_type: "Terrestrial", name: "Red Ant", color: "Red to Orangish", dates: "May 1 - Oct 15", emergence: "All Day", size: "18 - 22", spinner_fall: "N/A", state_id: 6)
+
+Hatch.create(bug_type: "Worm", name: "San Juan Worm", color: "Red, Pink, Brown, Purple", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Leech or Minnow", name: "Wooly Bugger", color: "Black, Olive, Brown", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "8 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Egg", name: "Eggs", color: "Red, Pink, Orange, Yellow", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "16 - 20", spinner_fall: "N/A", state_id: 6)
+
+
+
+# <---- Flies ---->
+Fly.create(
+  name: "Parachute Adams",
+  description: "Good all-around adult mayfly pattern",
+  hatch_id: 13
+  )
+Fly.create(
+  name: "Pheasant Tail",
+  description: "Can serve as a Baetis Nymph or Mayfly Nymph pattern.
+    Flashback patterns are popular, especially in the riffles,
+    along with a bead head pattern to get the fly down in the water more quickly.",
+  hatch_id: 15
+  )
+Fly.create(
+  name: "Blue Wing Olive",
+  description: "Classic adult Baetis or Mayfly pattern.
+    It is simple yet elegant. It can be fished year round; just watch
+    for a hatch coming off the water.",
+  hatch_id: 12
+  )
+Fly.create(
+  name: "Mercury Midge",
+  description: "A great Colorado fly. Created by Pat Dorsey for the Platte River.
+  It can be used in a variety of colors, but all have the silver-lined bead head.
+  The Mercury Midge imitates a midge pupa just before emerging as an adult and is
+  normally fished beneath the surface.",
+  hatch_id: 28
+  )
+Fly.create(
+  name: "The Black Beauty",
+  description: "Another fly created by Pat Dorsey. It is an earlier stage pupa
+  imitation and is normally fished deeper. Most efficient in smaller sizes: 18 - 22.",
+  hatch_id: 30
+  )
+Fly.create(
+  name: "San Juan Worm",
+  description: "Works in a variety of colors, but red and hot pink seem to work the best.
+  Fish it as a dropper off a big dry fly, or under an attractor nymph.",
+  hatch_id: 49
+  )
+Fly.create(
+  name: "Elk Hair Caddis",
+  description: "Dry fly. Serves as an adult Caddisfly, and is fished in various forms.",
+  hatch_id: 7
+  )
+Fly.create(
+  name: "Amy's Ant",
+  description: "Great multi-purpose foam ant.",
+  hatch_id: 43
+  )
+Fly.create(
+  name: "Sparkle Wing RS2",
+  description: "Simulates a wide range of emerging mayfly nymphs, but mostly a Baetis.
+  It works great as a midge pupa during the winter months.",
+  hatch_id: 17
+  )
+Fly.create(
+  name: "Wooly Bugger",
+  description: "Imitates either a minnow or a leech.",
+  hatch_id: 50
+  )
+Fly.create(
+  name: "Copper John",
+  description: "Great multi-purpose nymph. Can imitate Stoneflies or Baetis", 
+  hatch_id: 36
+  )
+Fly.create(
+  name: "Prince Nymph",
+  description: "Can fill several roles depending on the size and how it is fished.
+  Can imitate a stonefly or caddis nymph.",
+  hatch_id: 39
+  )
+Fly.create(
+  name: "Stimulator",
+  description: "An orange or yellow stimulator is highly regarded to serve as a
+  stone fly, a big caddis, or even a hopper.",
+  hatch_id: 32
+  )
+Fly.create(
+  name: "Egg",
+  description: "Because fish are spawning pretty much year round in Colorado,
+  an egg pattern is great to have in a flybox.",
+  hatch_id: 51
+  )

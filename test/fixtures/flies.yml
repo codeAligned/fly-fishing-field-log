@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  river_id: 1
+  description: MyString
 
 two:
   name: MyString
-  river_id: 1
+  description: MyString
