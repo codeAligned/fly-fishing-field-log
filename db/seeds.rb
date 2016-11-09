@@ -2,8 +2,27 @@ River.destroy_all
 Station.destroy_all
 State.destroy_all
 User.destroy_all
+Hatch.destroy_all
+Fly.destroy_all
+Post.destroy_all
 
+# <---- Users ---->
+30.times do
+  name = Faker::Name.name
+  age = Faker::Number.between(18, 70)
+  state = Faker::Number.between(1, 50)
+  User.create(name: name, age: age, password: 'password', state_id: state)
+end
 
+# <---- River Reports ---->
+20.times do
+  date = Faker::Date.between(2.days.ago, Date.today)
+  text = Faker::Hipster.paragraph
+  user_id = Faker::Number.between(1, 30)
+  Post.create(name: date, text: text, user_id: user_id)
+end
+
+# <---- States ---->
 State.create(name: "Alabama")
 State.create(name: "Alaska")
 State.create(name: "Arizona")
@@ -55,40 +74,25 @@ State.create(name: "West Virginia")
 State.create(name: "Wisconsin")
 State.create(name: "Wyoming")
 
-30.times do
-  name = Faker::Name.name
-  age = Faker::Number.between(18, 70)
-  state = Faker::Number.between(1, 50)
-  User.create(name: name, age: age, password: 'password', state_id: state)
-end
+# <---- Rivers ---->
+River.create(name: "UPPER SOUTH PLATTE", state_id: 6) #1
+River.create(name: "CLEAR", state_id: 6) #2
+River.create(name: "ST. VRAIN", state_id: 6) #3
+River.create(name: "BIG THOMPSON", state_id: 6) #4
+River.create(name: "ARKANSAS HEADWATERS", state_id: 6) #5
+River.create(name: "UPPER ARKANSAS", state_id: 6) #6
+River.create(name: "COLORADO", state_id: 6) #7
+River.create(name: "BLUE", state_id: 6) #8
+River.create(name: "ROARING FORK", state_id: 6) #9
+River.create(name: "EAGLE", state_id: 6) #10
+River.create(name: "EAST TAYLOR", state_id: 6) #11
+River.create(name: "GUNNISON", state_id: 6) #12
+River.create(name: "SAN MIGUEL", state_id: 6) #13
+River.create(name: "YAMPA", state_id: 6) #14
+River.create(name: "ANIMAS", state_id: 6) #15
+River.create(name: "SAN JUAN", state_id: 6) #16
 
-20.times do
-  date = Faker::Date.between(2.days.ago, Date.today)
-  text = Faker::Hipster.paragraph
-  user_id = Faker::Number.between(1, 30)
-  Post.create(name: date, text: text, user_id: user_id)
-end
-# User.create(name: "Gina", age: 27, password: "enzo", state_id: State.find_by(name: "Colorado").id)
-# User.create(name: "Sharon", age: 23, password: "fitz", state_id: State.find_by(name: "Wyoming").id)
-# User.create(name: "Hannah", age: 29, password: "lyla", state_id: State.find_by(name: "Georgia").id)
-
-River.create(name: "UPPER SOUTH PLATTE") #1
-River.create(name: "CLEAR") #2
-River.create(name: "ST. VRAIN") #3
-River.create(name: "BIG THOMPSON") #4
-River.create(name: "ARKANSAS HEADWATERS") #5
-River.create(name: "UPPER ARKANSAS") #6
-River.create(name: "COLORADO") #7
-River.create(name: "BLUE") #8
-River.create(name: "ROARING FORK") #9
-River.create(name: "EAGLE") #10
-River.create(name: "EAST TAYLOR") #11
-River.create(name: "GUNNISON") #12
-River.create(name: "SAN MIGUEL") #13
-River.create(name: "YAMPA") #14
-River.create(name: "ANIMAS") #15
-River.create(name: "SAN JUAN") #16
-
+# <---- Stations ---->
 Station.create(station_name: "SOUTH PLATTE ABOVE CHEESMAN LAKE, CO", gage_height: 5.51, discharge: 227, river_id: 1)
 Station.create(station_name: "SOUTH PLATTE RIVER BLW BRUSH CRK NEAR TRUMBULL, CO", gage_height: 3.82, discharge: 331, river_id: 1)
 Station.create(station_name: "CLEAR CREEK AT GOLDEN, CO", gage_height: 4.35, discharge: 142, river_id: 2)
@@ -260,7 +264,7 @@ Fly.create(
   )
 Fly.create(
   name: "Copper John",
-  description: "Great multi-purpose nymph. Can imitate Stoneflies or Baetis", 
+  description: "Great multi-purpose nymph. Can imitate Stoneflies or Baetis",
   hatch_id: 36
   )
 Fly.create(

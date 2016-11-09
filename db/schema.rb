@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108203141) do
+ActiveRecord::Schema.define(version: 20161109013119) do
 
   create_table "flies", force: :cascade do |t|
     t.string   "name"
@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 20161108203141) do
   end
 
   create_table "rivers", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "state_id"
   end
 
   create_table "states", force: :cascade do |t|
