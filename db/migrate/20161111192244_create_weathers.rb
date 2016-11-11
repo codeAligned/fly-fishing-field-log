@@ -5,7 +5,6 @@ class CreateWeathers < ActiveRecord::Migration[5.0]
       t.string :sky
       t.string :wind
       t.string :percipitation
-      t.integer :post_id
       t.timestamps
     end
   end

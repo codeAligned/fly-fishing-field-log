@@ -4,7 +4,6 @@ class CreateFish < ActiveRecord::Migration[5.0]
       t.string :species
       t.integer :weight
       t.integer :length
-      t.integer :post_id
 
       t.timestamps
     end

@@ -4,7 +4,10 @@ State.destroy_all
 User.destroy_all
 Hatch.destroy_all
 Fly.destroy_all
-Post.destroy_all
+Fish.destroy_all
+Weather.destroy_all
+Water.destroy_all
+Report.destroy_all
 
 # <---- Users ---->
 30.times do
@@ -16,10 +19,26 @@ end
 
 # <---- River Reports ---->
 20.times do
-  date = Faker::Date.between(2.days.ago, Date.today)
-  text = Faker::Hipster.paragraph
-  user_id = Faker::Number.between(1, 30)
-  Post.create(name: date, text: text, user_id: user_id)
+  name = Faker::Address.city
+  date = Faker::Date.between(5.days.ago, Date.today)
+  rating = Faker::Number.between(1, 5)
+  highlights = Faker::Hacker.say_something_smart
+  fish = Faker::Number.between(1, 10)
+  water = Faker::Number.between(1, 10)
+  weather = Faker::Number.between(1, 10)
+  fly = Faker::Number.between(1, 14)
+  river = Faker::Number.between(1, 16)
+  user = Faker::Number.between(1, 30)
+  Report.create(name: name, date: date, rating: rating, highlights: highlights,
+  fish_id: fish, water_id: water, weather_id: weather, fly_id: fly, river_id: river, user_id: user)
+end
+
+# <---- River Flies ---->
+
+20.times do
+  river = Faker::Number.between(1, 16)
+  fly = Faker::Number.between(1, 14)
+  RiverFly.create(river_id: river, fly_id: fly)
 end
 
 # <---- States ---->
@@ -200,26 +219,28 @@ Hatch.create(bug_type: "Leech or Minnow", name: "Wooly Bugger", color: "Black, O
 Hatch.create(bug_type: "Egg", name: "Eggs", color: "Red, Pink, Orange, Yellow", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "16 - 20", spinner_fall: "N/A", state_id: 6)
 
 
-
 # <---- Flies ---->
 Fly.create(
   name: "Parachute Adams",
   description: "Good all-around adult mayfly pattern",
-  hatch_id: 13
+  color: "Brown",
+  size: 16
   )
 Fly.create(
   name: "Pheasant Tail",
   description: "Can serve as a Baetis Nymph or Mayfly Nymph pattern.
     Flashback patterns are popular, especially in the riffles,
     along with a bead head pattern to get the fly down in the water more quickly.",
-  hatch_id: 15
+    color: "Red",
+    size: 18
   )
 Fly.create(
   name: "Blue Wing Olive",
   description: "Classic adult Baetis or Mayfly pattern.
     It is simple yet elegant. It can be fished year round; just watch
     for a hatch coming off the water.",
-  hatch_id: 12
+    color: "Olive",
+    size: 18
   )
 Fly.create(
   name: "Mercury Midge",
@@ -227,117 +248,111 @@ Fly.create(
   It can be used in a variety of colors, but all have the silver-lined bead head.
   The Mercury Midge imitates a midge pupa just before emerging as an adult and is
   normally fished beneath the surface.",
-  hatch_id: 28
+  color: "Black",
+  size: 22
   )
 Fly.create(
   name: "The Black Beauty",
   description: "Another fly created by Pat Dorsey. It is an earlier stage pupa
   imitation and is normally fished deeper. Most efficient in smaller sizes: 18 - 22.",
-  hatch_id: 30
+  color: "Black",
+  size: 20
   )
 Fly.create(
   name: "San Juan Worm",
   description: "Works in a variety of colors, but red and hot pink seem to work the best.
   Fish it as a dropper off a big dry fly, or under an attractor nymph.",
-  hatch_id: 49
+  color: "Hot Pink",
+  size: 16
   )
 Fly.create(
   name: "Elk Hair Caddis",
   description: "Dry fly. Serves as an adult Caddisfly, and is fished in various forms.",
-  hatch_id: 7
+  color: "Brown and Tan",
+  size: 14
   )
 Fly.create(
   name: "Amy's Ant",
   description: "Great multi-purpose foam ant.",
-  hatch_id: 43
+  color: "Black",
+  size: 12
   )
 Fly.create(
   name: "Sparkle Wing RS2",
   description: "Simulates a wide range of emerging mayfly nymphs, but mostly a Baetis.
   It works great as a midge pupa during the winter months.",
-  hatch_id: 17
+  color: "Grey",
+  size: 18
   )
 Fly.create(
   name: "Wooly Bugger",
   description: "Imitates either a minnow or a leech.",
-  hatch_id: 50
+  color: "Olive",
+  size: 14
   )
 Fly.create(
   name: "Copper John",
   description: "Great multi-purpose nymph. Can imitate Stoneflies or Baetis",
-  hatch_id: 36
+  color: "Red",
+  size: 16
   )
 Fly.create(
   name: "Prince Nymph",
   description: "Can fill several roles depending on the size and how it is fished.
   Can imitate a stonefly or caddis nymph.",
-  hatch_id: 39
+  color: "Brown",
+  size: 18
   )
 Fly.create(
   name: "Stimulator",
   description: "An orange or yellow stimulator is highly regarded to serve as a
   stone fly, a big caddis, or even a hopper.",
-  hatch_id: 32
+  color: "Yellow and Black",
+  size: 16
   )
 Fly.create(
   name: "Egg",
   description: "Because fish are spawning pretty much year round in Colorado,
   an egg pattern is great to have in a flybox.",
-  hatch_id: 51
+  color: "Orange",
+  size: 18
   )
-
-# <---- Trips ---->
-10.times do
-  date = Faker::Date.between(3.months.ago, Date.today)
-end
-
-Trip.create(name: "Blue River", rating: 4, date: date, highlights: "The fishing is fantastic. Clear skies and 56-59 degree weather.", post_id: 4)
-Trip.create(name: "Deckers", rating: 5, date: date, highlights: "The fish were biting all day. Cloudy skies and great weather.", post_id: 7)
-Trip.create(name: "Roaring Fork - Toilet Bowl", rating: 4, date: date, highlights: "The mysis shrimp was the best fly to use today.", post_id: 19)
-Trip.create(name: "Dream Stream", rating: 3, date: date, highlights: "The water temperature was between 44-47 degrees and Crystal Clear.", post_id: 13)
-Trip.create(name: "Colorado River Pumphouse", rating: 2, date: date, highlights: "Water was clear and the fish were spooked all day.", post_id: 9)
-Trip.create(name: "Cheesman Canyon", rating: 2, date: date, highlights: "Fish were hanging out in deep areas, hard to reach.", post_id: 19)
-Trip.create(name: "Ray's Run", rating: 4, date: date, highlights: "Crowded on the river but the everyone was catching fish.", post_id: 2)
-Trip.create(name: "Spinney Reservoir", rating: 3, date: date, highlights: "No one on the river, mayfly hatches in the afternoon.", post_id: 11)
-Trip.create(name: "Blue above Green Mountain", rating: 2, date: date, highlights: "Rough hike down to the river, freezing temperatures.", post_id: 20)
-Trip.create(name: "Yampa River", rating: 4, date: date, highlights: "Caught 8 great fish, rainbows and browns.", post_id: 18)
 
 # <---- Fish ---->
 
-10.times do
-  weight = Faker::Number.between(1, 10)
-  length = Faker::Number.between(8, 20)
-end
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutthroat Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutthroat Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
 
-Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 4)
-Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 19)
-Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 7)
-Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 13)
-Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 9)
-Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 2)
-Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 11)
-Fish.create(species: "Cutthroat Trout", weight: weight, length: length, post_id: 20)
-Fish.create(species: "Cutbow Trout", weight: weight, length: length, post_id: 18)
-Fish.create(species: "Cutthroat Trout", weight: weight, length: length, post_id: 19)
+# <---- Weather ---->
 
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "strong", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "none", percipitation: "rain in the afternoon")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "sunny", wind: "strong", percipitation: "rain in the morning")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "none", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "strong", percipitation: "rain all day")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "sunny", wind: "strong", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "mostly sunny", wind: "breezy", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "calm", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "calm", percipitation: "sprinkling")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "partly couldy", wind: "breezy", percipitation: "none")
 
-  # Weather:
-  #   Temp:
-  #   Sky:
-  #   Wind:
-  #   Percipitation:
-  #
-  # Water:
-  #   Temp:
-  #   Flow:
-  #   Clarity:
-  #   Runoff:
-  #
-  # Flies & Hatches:
-  #   Reported hatches:
-  #   Times:
-  #   Flies used:
-  #     name:
-  #     color:
-  #     size:
-  #     time:
+# <---- Water ---->
+
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "murky")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "murky")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")

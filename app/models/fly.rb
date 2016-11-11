@@ -1,3 +1,4 @@
 class Fly < ApplicationRecord
-  belongs_to :hatch 
+  has_many :river_flies
+  has_many :rivers, through: :river_flies
 end

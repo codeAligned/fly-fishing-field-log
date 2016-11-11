@@ -1,0 +1,15 @@
+<p><label>Name:</label> <%= @report.name %></p>
+<p><label>Date:</label> <%= @report.date %></p>
+<p><label>River:</label> <%= @report.river_id %></p>
+<p><label>Rating:</label> <%= @report.rating %></p>
+<p><label>Highlights:</label> <%= @report.highlights %></p>
+<p><label>Fish:</label> <%= @report.fish_id %></p>
+<p><label>Fly:</label> <%= @report.fly_id %></p>
+<p><label>Weather:</label> <%= @report.weather_id %></p>
+<p><label>Water:</label> <%= @report.water_id %></p>
+
+<p><%= link_to "See All Your Reports", userreports_path %></p>
+
+
+
+<%= link_to "Back to profile page", user_path(session[:user_id]) %>

@@ -1,7 +1,0 @@
-
-  <% @posts.each do |post| %>
-    <p><label>Title:</label> <%= post.name %></p>
-    <p><%= post.text %></p>
-  <% end %>
-
-<%= link_to "Back to profile page", user_path(session[:user_id]) %>

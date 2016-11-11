@@ -1,0 +1,41 @@
+<h1>Edit your report</h1>
+<%= form_for @report do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.label :river %>
+    <%= f.text_field :river_id %>
+  </p>
+  <p>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.label :highlights %>
+    <%= f.text_area :highlights %>
+  </p>
+  <p>
+    <%= f.label :fish %>
+    <%= f.text_field :fish_id %>
+  </p>
+  <p>
+    <%= f.label :fly %>
+    <%= f.text_field :fly_id %>
+  </p>
+  <p>
+    <%= f.label :weather %>
+    <%= f.text_field :weather_id %>
+  </p>
+  <p>
+    <%= f.label :water %>
+    <%= f.text_field :water_id %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
