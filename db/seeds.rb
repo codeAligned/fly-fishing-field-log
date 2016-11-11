@@ -285,3 +285,59 @@ Fly.create(
   an egg pattern is great to have in a flybox.",
   hatch_id: 51
   )
+
+# <---- Trips ---->
+10.times do
+  date = Faker::Date.between(3.months.ago, Date.today)
+end
+
+Trip.create(name: "Blue River", rating: 4, date: date, highlights: "The fishing is fantastic. Clear skies and 56-59 degree weather.", post_id: 4)
+Trip.create(name: "Deckers", rating: 5, date: date, highlights: "The fish were biting all day. Cloudy skies and great weather.", post_id: 7)
+Trip.create(name: "Roaring Fork - Toilet Bowl", rating: 4, date: date, highlights: "The mysis shrimp was the best fly to use today.", post_id: 19)
+Trip.create(name: "Dream Stream", rating: 3, date: date, highlights: "The water temperature was between 44-47 degrees and Crystal Clear.", post_id: 13)
+Trip.create(name: "Colorado River Pumphouse", rating: 2, date: date, highlights: "Water was clear and the fish were spooked all day.", post_id: 9)
+Trip.create(name: "Cheesman Canyon", rating: 2, date: date, highlights: "Fish were hanging out in deep areas, hard to reach.", post_id: 19)
+Trip.create(name: "Ray's Run", rating: 4, date: date, highlights: "Crowded on the river but the everyone was catching fish.", post_id: 2)
+Trip.create(name: "Spinney Reservoir", rating: 3, date: date, highlights: "No one on the river, mayfly hatches in the afternoon.", post_id: 11)
+Trip.create(name: "Blue above Green Mountain", rating: 2, date: date, highlights: "Rough hike down to the river, freezing temperatures.", post_id: 20)
+Trip.create(name: "Yampa River", rating: 4, date: date, highlights: "Caught 8 great fish, rainbows and browns.", post_id: 18)
+
+# <---- Fish ---->
+
+10.times do
+  weight = Faker::Number.between(1, 10)
+  length = Faker::Number.between(8, 20)
+end
+
+Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 4)
+Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 19)
+Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 7)
+Fish.create(species: "Rainbow Trout", weight: weight, length: length, post_id: 13)
+Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 9)
+Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 2)
+Fish.create(species: "Brown Trout", weight: weight, length: length, post_id: 11)
+Fish.create(species: "Cutthroat Trout", weight: weight, length: length, post_id: 20)
+Fish.create(species: "Cutbow Trout", weight: weight, length: length, post_id: 18)
+Fish.create(species: "Cutthroat Trout", weight: weight, length: length, post_id: 19)
+
+
+  # Weather:
+  #   Temp:
+  #   Sky:
+  #   Wind:
+  #   Percipitation:
+  #
+  # Water:
+  #   Temp:
+  #   Flow:
+  #   Clarity:
+  #   Runoff:
+  #
+  # Flies & Hatches:
+  #   Reported hatches:
+  #   Times:
+  #   Flies used:
+  #     name:
+  #     color:
+  #     size:
+  #     time:
