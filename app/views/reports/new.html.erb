@@ -9,8 +9,8 @@
     <%= f.text_field :date %>
   </p>
   <p>
-    <%= f.label :river %>
-    <%= f.text_field :river_id %>
+    <%= f.label :name, 'River' %>
+    <%= f.collection_select(:river_id, River.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :rating %>
