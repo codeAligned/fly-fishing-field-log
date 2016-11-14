@@ -8,6 +8,7 @@
     <%= f.label :date %>
     <%= f.text_field :date %>
   </p>
+
   <p>
     <%= f.label :name, 'River' %>
     <%= f.collection_select(:river_id, River.all, :id, :name) %>
@@ -20,22 +21,31 @@
     <%= f.label :highlights %>
     <%= f.text_area :highlights %>
   </p>
-  <p>
-    <%= f.label :fish %>
-    <%= f.text_field :fish_id %>
-  </p>
-  <p>
+
+  <%= fields_for :fish do |fish| %>
+    <label>Fish:</label>
+    <p>
+      <%= fish.label :species %>
+      <%= fish.text_field :species %>
+      <%= fish.label :weight %>
+      <%= fish.text_field :weight %>
+      <%= fish.label :length %>
+      <%= fish.text_field :length %>
+    </p>
+  <% end %>
+
+  <!-- <p>
     <%= f.label :fly %>
-    <%= f.text_field :fly_id %>
+    <%= f.text_field :fly %>
   </p>
   <p>
     <%= f.label :weather %>
-    <%= f.text_field :weather_id %>
+    <%= f.text_field :weather %>
   </p>
   <p>
     <%= f.label :water %>
-    <%= f.text_field :water_id %>
-  </p>
+    <%= f.text_field :water %>
+  </p> -->
 
   <%= f.submit %>
 <% end %>

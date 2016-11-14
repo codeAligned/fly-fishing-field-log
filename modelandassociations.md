@@ -75,3 +75,10 @@ Hatches belong to River & Post (confused about this)
 
 User has many Posts
 User has one State
+
+
+
+11/13
+Now that associations are set, how do I get it to show up on reports without
+just their id showing?
+How to direct the data and persist it all under reports under their user_id ultimately

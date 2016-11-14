@@ -6,8 +6,8 @@
 
   <% if session[:user_id] == @user.id %>
     <p><%= link_to "Edit Information", edit_user_path(@user) %></p>
-    <p><%= link_to "Create a New Post", new_report_path %></p>
-    <p><%= link_to "See All Your Posts", userreports_path %></p>
+    <p><%= link_to "Create a New Report", new_report_path %></p>
+    <p><%= link_to "See All Your Reports", userreports_path %></p>
 
     <br>
     <br>
