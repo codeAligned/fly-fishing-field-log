@@ -2,8 +2,46 @@ River.destroy_all
 Station.destroy_all
 State.destroy_all
 User.destroy_all
+Hatch.destroy_all
+Fly.destroy_all
+Fish.destroy_all
+Weather.destroy_all
+Water.destroy_all
+Report.destroy_all
 
+# <---- Users ---->
+30.times do
+  name = Faker::Name.name
+  age = Faker::Number.between(18, 70)
+  state = Faker::Number.between(1, 50)
+  User.create(name: name, age: age, password: 'password', state_id: state)
+end
 
+# <---- River Reports ---->
+20.times do
+  name = Faker::Address.city
+  date = Faker::Date.between(5.days.ago, Date.today)
+  rating = Faker::Number.between(1, 5)
+  highlights = Faker::Hacker.say_something_smart
+  fish = Faker::Number.between(1, 10)
+  water = Faker::Number.between(1, 10)
+  weather = Faker::Number.between(1, 10)
+  fly = Faker::Number.between(1, 14)
+  river = Faker::Number.between(1, 16)
+  user = Faker::Number.between(1, 30)
+  Report.create(name: name, date: date, rating: rating, highlights: highlights,
+  fish_id: fish, water_id: water, weather_id: weather, fly_id: fly, river_id: river, user_id: user)
+end
+
+# <---- River Flies ---->
+
+20.times do
+  river = Faker::Number.between(1, 16)
+  fly = Faker::Number.between(1, 14)
+  RiverFly.create(river_id: river, fly_id: fly)
+end
+
+# <---- States ---->
 State.create(name: "Alabama")
 State.create(name: "Alaska")
 State.create(name: "Arizona")
@@ -55,28 +93,25 @@ State.create(name: "West Virginia")
 State.create(name: "Wisconsin")
 State.create(name: "Wyoming")
 
+# <---- Rivers ---->
+River.create(name: "UPPER SOUTH PLATTE", state_id: 6) #1
+River.create(name: "CLEAR", state_id: 6) #2
+River.create(name: "ST. VRAIN", state_id: 6) #3
+River.create(name: "BIG THOMPSON", state_id: 6) #4
+River.create(name: "ARKANSAS HEADWATERS", state_id: 6) #5
+River.create(name: "UPPER ARKANSAS", state_id: 6) #6
+River.create(name: "COLORADO", state_id: 6) #7
+River.create(name: "BLUE", state_id: 6) #8
+River.create(name: "ROARING FORK", state_id: 6) #9
+River.create(name: "EAGLE", state_id: 6) #10
+River.create(name: "EAST TAYLOR", state_id: 6) #11
+River.create(name: "GUNNISON", state_id: 6) #12
+River.create(name: "SAN MIGUEL", state_id: 6) #13
+River.create(name: "YAMPA", state_id: 6) #14
+River.create(name: "ANIMAS", state_id: 6) #15
+River.create(name: "SAN JUAN", state_id: 6) #16
 
-User.create(name: "Gina", age: 27, password: "enzo", state_id: State.find_by(name: "Colorado").id)
-User.create(name: "Sharon", age: 23, password: "fitz", state_id: State.find_by(name: "Wyoming").id)
-User.create(name: "Hannah", age: 29, password: "lyla", state_id: State.find_by(name: "Georgia").id)
-
-River.create(name: "UPPER SOUTH PLATTE") #1
-River.create(name: "CLEAR") #2
-River.create(name: "ST. VRAIN") #3
-River.create(name: "BIG THOMPSON") #4
-River.create(name: "ARKANSAS HEADWATERS") #5
-River.create(name: "UPPER ARKANSAS") #6
-River.create(name: "COLORADO") #7
-River.create(name: "BLUE") #8
-River.create(name: "ROARING FORK") #9
-River.create(name: "EAGLE") #10
-River.create(name: "EAST TAYLOR") #11
-River.create(name: "GUNNISON") #12
-River.create(name: "SAN MIGUEL") #13
-River.create(name: "YAMPA") #14
-River.create(name: "ANIMAS") #15
-River.create(name: "SAN JUAN") #16
-
+# <---- Stations ---->
 Station.create(station_name: "SOUTH PLATTE ABOVE CHEESMAN LAKE, CO", gage_height: 5.51, discharge: 227, river_id: 1)
 Station.create(station_name: "SOUTH PLATTE RIVER BLW BRUSH CRK NEAR TRUMBULL, CO", gage_height: 3.82, discharge: 331, river_id: 1)
 Station.create(station_name: "CLEAR CREEK AT GOLDEN, CO", gage_height: 4.35, discharge: 142, river_id: 2)
@@ -124,3 +159,200 @@ Station.create(station_name: "SAN JUAN AT PAGOSA SPRINGS, CO", gage_height: 4.03
 Station.create(station_name: "SAN JUAN NEAR CARRACAS, CO", gage_height: 2.74, discharge: 222, river_id: 16)
 Station.create(station_name: "LOS PINOS AT LA BOCA, CO", gage_height: 3.82, discharge: 148, river_id: 16)
 Station.create(station_name: "SAN JUAN AT FOUR CORNERS, CO", gage_height: 6.23, discharge: 1070, river_id: 16)
+
+# <---- Hatches ---->
+Hatch.create(bug_type: "Caddis", name: "American Grannom", color: "Bright Green to Greenish Brown", dates: "Mar 1 - May 15", emergence: "Early Morning & Afternoon", size: "10 - 14", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Great Gray Spotted Sedge", color: "Gray Green to Olive Brown", dates: "Jun 1 - Jul 15", emergence: "Sporadic", size: "10 - 12", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Green Sedge", color: "Olive to Gray Brown", dates: "Jul 15 - Sep 30", emergence: "Morning & Afternoon", size: "12 - 14", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Little Black Sedge", color: "Chocolate to Black", dates: "Jul 15 - Sep 30", emergence: "Sporadic", size: "16 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Little Plain Brown Sedge", color: "Brown to Chocolate", dates: "Jun 15 - Aug 30", emergence: "Sporadic", size: "14 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Little Sister Sedge", color: "Green to Greenish Brown", dates: "May 15 - Aug 30", emergence: "Afternoon & Evening", size: "14 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Little Tan Short Horn Sedge", color: "Dark Brown to Yellow", dates: "Mar 1 - Aug 30", emergence: "Sporadic", size: "14 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Little Wester Dark Sedge", color: "Dark Brown", dates: "Jun 1 - Aug 15", emergence: "Mid Day", size: "16 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Micro Caddis", color: "Yellow, Orange, or Brown", dates: "Jun 15 - Oct 15", emergence: "Sporadic", size: "20 - 22", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "October Caddis", color: "Orange Tan to Grayish Black", dates: "Sep 1 - Oct 30", emergence: "Shallows, Afternoon & Evening", size: "8 - 10", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Caddis", name: "Spotted Sedge", color: "Brownish Yellow", dates: "May 15 - Sep 30", emergence: "Sporadic", size: "10 - 12", spinner_fall: "N/A", state_id: 6)
+
+Hatch.create(bug_type: "Mayfly", name: "Blue Winged Olive", color: "Light Olive Brown to Brown Olive", dates: "Mar 1 - Nov 15", emergence: "Clouds & Warmest Part of Day", size: "16 - 18", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Brown Drake", color: "Dark Brown to Blackish", dates: "Jun 15 - Jul 15", emergence: "Evening", size: "10 - 12", spinner_fall: "Late Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Callibaetis Speckled Dun", color: "Tannish Olive to Olive Gray", dates: "Jun 1 - Aug 30", emergence: "Cloudy, Late Morning", size: "14 - 16", spinner_fall: "Late Afternoon", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Early Pale Morning Dun (PMD)", color: "Olive Yellow to Yellowish Pink", dates: "Jun 1 - Sep 15", emergence: "Mid Morning to Early Afternoon", size: "16 - 22", spinner_fall: "Late Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Ginger Quill", color: "Pale Cream to Whitish", dates: "Jul 1 - Sep 15", emergence: "Morning", size: "14 - 16", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Gray Drake", color: "Gray", dates: "Jun 1 - Nov 30", emergence: "Late Morning", size: "14 - 16", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Iron Blue Quill", color: "Light Olive Tan to Blue Gray", dates: "Jun 1 - Aug 15", emergence: "Warmest Part of Day", size: "20 - 22", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Late Pale Morning Dun (PMD)", color: "Creamish Olive to Yellowish", dates: "Jun 15 - Jul 15", emergence: "Early Morning", size: "16 - 18", spinner_fall: "After Afternoon", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Mahogany Dun", color: "Reddish Brown to Blackish Brown", dates: "Sep 1 - Oct 31", emergence: "Early Afternoon", size: "16 - 18", spinner_fall: "Late Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Micro Blue Winged Olive (BWO)", color: "Pale Olive Green to Blue Gray", dates: "Jun 1 - Nov 30", emergence: "Clouds & Warmest Part of the Day", size: "22 - 26", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Pink Pale Morning Dun", color: "Pink to Orangish to Rusty Red", dates: "Aug 1 - Sep 15", emergence: "Daytime", size: "14 - 16", spinner_fall: "Early Morning", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Red Quill", color: "Reddish Brown", dates: "Jun 15 - Sep 30", emergence: "Mid Morning", size: "14 - 16", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Slate Winged Drake", color: "Brown to Slate Gray", dates: "Jun 15 - Aug 1", emergence: "Eary Afternoon", size: "16 - 12", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Trico", color: "Black", dates: "Jul 15 - Sep 15", emergence: "Morning", size: "22 - 26", spinner_fall: "Early Afternoon", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Western Black Quill", color: "Purplish Black to Grayish Brown", dates: "Apr 1 - Jun 30", emergence: "Mid Morning", size: "14 - 12", spinner_fall: "Evening", state_id: 6)
+Hatch.create(bug_type: "Mayfly", name: "Western Green Drake", color: "Dark Olive", dates: "Jun 1 - Aug 1", emergence: "Cloudy, Between 1 - 4 PM", size: "8 - 12", spinner_fall: "Evening", state_id: 6)
+
+Hatch.create(bug_type: "Midge", name: "Black Midge", color: "Blackish to Black", dates: "Apr 1 - Nov 15", emergence: "All Day", size: "18 - 20", spinner_fall: "2 - 3 Hours", state_id: 6)
+Hatch.create(bug_type: "Midge", name: "Chocolate Brown Midge", color: "Brown to Chocolate", dates: "Feb 15 - Dec 15", emergence: "All Day", size: "20 - 22", spinner_fall: "2 - 3 Hours", state_id: 6)
+Hatch.create(bug_type: "Midge", name: "Micro Black Midge", color: "Blackish to Black", dates: "Mar 1 - Nov 15", emergence: "Morning", size: "22 - 26", spinner_fall: "2 - 3 Hours", state_id: 6)
+Hatch.create(bug_type: "Midge", name: "Snow Midge", color: "Gray to Charcoal", dates: "Jan 1 - Dec 31", emergence: "Warmest Part of Day", size: "24 - 28", spinner_fall: "2 - 3 Hours", state_id: 6)
+
+Hatch.create(bug_type: "Stonefly", name: "Giant Golden", color: "Brownish Yellow", dates: "Jun 1 - Aug 1", emergence: "Follows Salmonflies", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Micro Black", color: "Dark Brown to Black", dates: "Jan 1 - May 15", emergence: "38 - 44° Water Temps Heat of Day", size: "18 - 22", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Micro Yellow", color: "Greenish Yellow to Yellow", dates: "Jun 1 - Aug 30", emergence: "46 - 54° Water Temps Morning", size: "18 - 22", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Salmon Fly", color: "Black to Reddish Brown", dates: "May 15 - Jul 15", emergence: "50 - 60° Water Late Morning on", size: "4 - 8", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "September Stone", color: "Reddish Brown with Orange Belly", dates: "Aug 15 - Oct 31", emergence: "Early Afternoon to Evening", size: "4 - 10", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Skwala Stone", color: "Dark Brown to Yellow Olive", dates: "Mar 1 - May 15", emergence: "38 - 47° Water Temps, Late afternoon and evening. Riffles and bankwater near foliage.", size: "6 - 12", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Small Western", color: "Brownish", dates: "May 15 - Jul 15", emergence: "46 - 56° Water Temps", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Winter Black", color: "Black Brown to Reddish Olive, Mottled Brown", dates: "Apr 1 - Aug 15", emergence: "Cold Mountain Streams and Small Ponds", size: "18 - 22", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Stonefly", name: "Yellow Sally", color: "Pale Yellow to Pinkish Yellow", dates: "Jun 15 - Aug 30", emergence: "Morning to Early Afternoon", size: "2 - 8", spinner_fall: "N/A", state_id: 6)
+
+Hatch.create(bug_type: "Terrestrial", name: "Beetle", color: "Brownish to Black", dates: "May 1 - Nov 30", emergence: "All Day", size: "10 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Black & Red Ant", color: "Red & Black", dates: "Jul 1 - Sep 30", emergence: "All Day", size: "18 - 20", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Black Ant", color: "Black", dates: "May 1 - Nov 15", emergence: "All Day", size: "20 - 24", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Cricket", color: "Brownish Olive to Black", dates: "Jun 1 - Nov 30", emergence: "Twilight & Dusk", size: "8 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Dog Day Cicadas", color: "Black & Orange", dates: "Jul 1 - Aug 31", emergence: "Varied", size: " ", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Flying Black Ant", color: "Black", dates: "Aug 15 - Sep 15", emergence: "Mid Afternoon", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Grasshopper", color: "Green to Brownish Tan", dates: "May 15 - Nov 15", emergence: "All Day", size: "2 - 14", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Terrestrial", name: "Red Ant", color: "Red to Orangish", dates: "May 1 - Oct 15", emergence: "All Day", size: "18 - 22", spinner_fall: "N/A", state_id: 6)
+
+Hatch.create(bug_type: "Worm", name: "San Juan Worm", color: "Red, Pink, Brown, Purple", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "14 - 18", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Leech or Minnow", name: "Wooly Bugger", color: "Black, Olive, Brown", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "8 - 16", spinner_fall: "N/A", state_id: 6)
+Hatch.create(bug_type: "Egg", name: "Eggs", color: "Red, Pink, Orange, Yellow", dates: "Jan 1 - Dec 31", emergence: "N/A", size: "16 - 20", spinner_fall: "N/A", state_id: 6)
+
+
+# <---- Flies ---->
+Fly.create(
+  name: "Parachute Adams",
+  description: "Good all-around adult mayfly pattern",
+  color: "Brown",
+  size: 16
+  )
+Fly.create(
+  name: "Pheasant Tail",
+  description: "Can serve as a Baetis Nymph or Mayfly Nymph pattern.
+    Flashback patterns are popular, especially in the riffles,
+    along with a bead head pattern to get the fly down in the water more quickly.",
+    color: "Red",
+    size: 18
+  )
+Fly.create(
+  name: "Blue Wing Olive",
+  description: "Classic adult Baetis or Mayfly pattern.
+    It is simple yet elegant. It can be fished year round; just watch
+    for a hatch coming off the water.",
+    color: "Olive",
+    size: 18
+  )
+Fly.create(
+  name: "Mercury Midge",
+  description: "A great Colorado fly. Created by Pat Dorsey for the Platte River.
+  It can be used in a variety of colors, but all have the silver-lined bead head.
+  The Mercury Midge imitates a midge pupa just before emerging as an adult and is
+  normally fished beneath the surface.",
+  color: "Black",
+  size: 22
+  )
+Fly.create(
+  name: "The Black Beauty",
+  description: "Another fly created by Pat Dorsey. It is an earlier stage pupa
+  imitation and is normally fished deeper. Most efficient in smaller sizes: 18 - 22.",
+  color: "Black",
+  size: 20
+  )
+Fly.create(
+  name: "San Juan Worm",
+  description: "Works in a variety of colors, but red and hot pink seem to work the best.
+  Fish it as a dropper off a big dry fly, or under an attractor nymph.",
+  color: "Hot Pink",
+  size: 16
+  )
+Fly.create(
+  name: "Elk Hair Caddis",
+  description: "Dry fly. Serves as an adult Caddisfly, and is fished in various forms.",
+  color: "Brown and Tan",
+  size: 14
+  )
+Fly.create(
+  name: "Amy's Ant",
+  description: "Great multi-purpose foam ant.",
+  color: "Black",
+  size: 12
+  )
+Fly.create(
+  name: "Sparkle Wing RS2",
+  description: "Simulates a wide range of emerging mayfly nymphs, but mostly a Baetis.
+  It works great as a midge pupa during the winter months.",
+  color: "Grey",
+  size: 18
+  )
+Fly.create(
+  name: "Wooly Bugger",
+  description: "Imitates either a minnow or a leech.",
+  color: "Olive",
+  size: 14
+  )
+Fly.create(
+  name: "Copper John",
+  description: "Great multi-purpose nymph. Can imitate Stoneflies or Baetis",
+  color: "Red",
+  size: 16
+  )
+Fly.create(
+  name: "Prince Nymph",
+  description: "Can fill several roles depending on the size and how it is fished.
+  Can imitate a stonefly or caddis nymph.",
+  color: "Brown",
+  size: 18
+  )
+Fly.create(
+  name: "Stimulator",
+  description: "An orange or yellow stimulator is highly regarded to serve as a
+  stone fly, a big caddis, or even a hopper.",
+  color: "Yellow and Black",
+  size: 16
+  )
+Fly.create(
+  name: "Egg",
+  description: "Because fish are spawning pretty much year round in Colorado,
+  an egg pattern is great to have in a flybox.",
+  color: "Orange",
+  size: 18
+  )
+
+# <---- Fish ---->
+
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Rainbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Brown Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutthroat Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutbow Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+Fish.create(species: "Cutthroat Trout", weight: Faker::Number.between(1, 10), length: Faker::Number.between(8, 20))
+
+# <---- Weather ---->
+
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "strong", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "none", percipitation: "rain in the afternoon")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "sunny", wind: "strong", percipitation: "rain in the morning")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "none", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "strong", percipitation: "rain all day")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "sunny", wind: "strong", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "mostly sunny", wind: "breezy", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "clear", wind: "calm", percipitation: "none")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "cloudy", wind: "calm", percipitation: "sprinkling")
+Weather.create(temperature: Faker::Number.between(30, 75), sky: "partly couldy", wind: "breezy", percipitation: "none")
+
+# <---- Water ---->
+
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "murky")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "murky")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "clear")
+Water.create(temperature: Faker::Number.between(20, 50), flow: Faker::Number.between(50, 300), clarity: "cloudy")

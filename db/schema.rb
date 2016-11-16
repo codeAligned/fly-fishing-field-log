@@ -10,16 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829205607) do
+ActiveRecord::Schema.define(version: 20161111220049) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string  "name"
-    t.string  "text"
-    t.integer "user_id"
+  create_table "fish", force: :cascade do |t|
+    t.string   "species"
+    t.integer  "weight"
+    t.integer  "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "color"
+    t.integer  "size"
+  end
+
+  create_table "hatches", force: :cascade do |t|
+    t.string   "bug_type"
+    t.string   "name"
+    t.string   "color"
+    t.string   "dates"
+    t.string   "emergence"
+    t.string   "size"
+    t.string   "spinner_fall"
+    t.integer  "state_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "name"
+    t.string   "date"
+    t.integer  "rating"
+    t.string   "highlights"
+    t.integer  "fish_id"
+    t.integer  "weather_id"
+    t.integer  "water_id"
+    t.integer  "fly_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "river_id"
+    t.integer  "user_id"
+  end
+
+  create_table "river_flies", force: :cascade do |t|
+    t.integer  "river_id"
+    t.integer  "fly_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rivers", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "state_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -40,6 +87,23 @@ ActiveRecord::Schema.define(version: 20160829205607) do
     t.integer  "state_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "waters", force: :cascade do |t|
+    t.integer  "temperature"
+    t.integer  "flow"
+    t.string   "clarity"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.integer  "temperature"
+    t.string   "sky"
+    t.string   "wind"
+    t.string   "percipitation"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

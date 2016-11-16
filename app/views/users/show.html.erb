@@ -44,5 +44,27 @@
     </body>
   </html>
 
+<<<<<<< HEAD
+=======
+  <p><%= label_tag "Name:" %> <%= @user.name %></p>
+  <p><%= label_tag "Age:" %> <%= @user.age %></p>
+  <p><%= label_tag "Home State:" %> <%= @homestate %></p>
+
+
+  <% if session[:user_id] == @user.id %>
+    <p><%= link_to "Edit Information", edit_user_path(@user) %></p>
+    <p><%= link_to "Create a New Report", new_report_path %></p>
+    <p><%= link_to "See All Your Reports", userreports_path %></p>
+
+    <br>
+    <br>
+
+    <p><%= link_to "See River Conditions", rivers_path %></p>
+
+
+    <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+
+  <%end %>
+>>>>>>> ec912142ec1cf2235a7b4f824bc7fcdc41a07f1d
 
 <!-- fix after creating new user, to be logged in as session -->

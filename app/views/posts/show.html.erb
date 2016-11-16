@@ -1,8 +1,0 @@
-<p><%= label_tag "Title:" %> <%= @post.name %></p>
-<p><%= @post.text %></p>
-
-
-<% if session[:user_id] == @post.user_id%>
-  <%= link_to "Edit Post", edit_post_path %>
-  <%= link_to "Back to profile page", user_path(session[:user_id]) %>
-<%end %>
