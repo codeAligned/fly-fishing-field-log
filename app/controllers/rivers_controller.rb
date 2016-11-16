@@ -19,7 +19,7 @@ class RiversController < ApplicationController
   end
 
   def river_params
-    params.require(:river).permit(:name, :state_id, :location)
+    params.require(:river).permit(:name, :state_id)
   end
 
 

@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.create(user_params)
     @user.state_id = State.find_by(id: params[:user][:state_id]).id
     @user.save

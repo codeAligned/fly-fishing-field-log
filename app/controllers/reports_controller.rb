@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
   end
 
   def show
-    binding.pry
     @report = Report.find(params[:id])
     @fish = Fish.where(id: params[:fish_id])
   end
@@ -46,7 +45,6 @@ class ReportsController < ApplicationController
     ##river
     @report.river_id = River.find_by(id: params[:report][:river_id]).id
     @report.save
-    binding.pry
 
     redirect_to userreports_path(@report.id)
   end
@@ -67,30 +65,11 @@ class ReportsController < ApplicationController
     redirect_to report_path(@report)
   end
 
-  # def userreport
-  #   binding.pry
-  #   @report = Report.find(params[:id]).where(user_id: current_user.id)
-  # end
-
   def userreports
     ##check to see if the id's of user match up to their reports
     #users/id/Reports
     #find the user and their id
     @reports = Report.where(user_id: current_user.id)
-
-    ##need to eventually be able to do go through all reports, find the fish_id, and
-    ## return all the fish and their info based on the id.
-    #
-    # @reports.each do |report|
-    #   @fish = Fish.where(id: report.fish_id)
-    # end
-    #   binding.pry
-    # @fish = Fish.joins(:reports).where(fish_id: id)
-    ## this returns all fish
-
-    # @fish = Report.joins(:fish).where(user_id: current_user.id)
-    ## next step is to find the fish, fly, weather, water and their data according
-    ## to their ids.
 
   end
 
