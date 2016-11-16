@@ -1,15 +1,7 @@
 class ReportsController < ApplicationController
 
   def new
-    # @river = River.find(params[:river_id])
-    # @fly = Fly.find(params[:fly_id])
-    # @fish = Fish.find(params[:fish_id])
-    # @weather = Weather.find(params[:weather_id])
-    # @water = Water.find(params[:water_id])
     @report = Report.new
-    @fish = Fish.new
-
-
   end
 
   def index
