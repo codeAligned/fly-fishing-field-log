@@ -1,77 +1,95 @@
-<h1>Create new report</h1>
-<%= form_for @report do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :date %>
-    <%= f.text_field :date %>
-  </p>
+<html>
+<head>
+  <title>Create New Report!</title>
+  <link rel="stylesheets" type="text/css" href="../../../assets/stylesheets/newuser.css">
+  <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,700,500' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="container">
+    <div class="fs-form-wrap" id="fs-form-wrap">
+      <div class="fs-title">
+        <br>
+        <br>
+        <h1>Create new report</h1>
+        <div class="report-form">
+        <%= form_for @report do |f| %>
+          <p>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </p>
+          <p>
+            <%= f.label :date %>
+            <%= f.text_field :date %>
+          </p>
+          <p>
+            <%= f.label :name, 'River' %>
+            <%= f.collection_select(:river_id, River.all, :id, :name) %>
+          </p>
+          <p>
+            <%= f.label :rating %>
+            <%= f.text_field :rating %>
+          </p>
+          <p>
+            <%= f.label :highlights %>
+            <%= f.text_area :highlights %>
+          </p>
 
-  <p>
-    <%= f.label :name, 'River' %>
-    <%= f.collection_select(:river_id, River.all, :id, :name) %>
-  </p>
-  <p>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
-  </p>
-  <p>
-    <%= f.label :highlights %>
-    <%= f.text_area :highlights %>
-  </p>
+          <%= fields_for :fish do |fish| %>
+            <label>Fish:</label>
+            <p>
+              <%= fish.label :species %>
+              <%= fish.text_field :species %>
+              <%= fish.label :weight %>
+              <%= fish.text_field :weight %>
+              <%= fish.label :length %>
+              <%= fish.text_field :length %>
+            </p>
+          <% end %>
 
-  <%= fields_for :fish do |fish| %>
-    <label>Fish:</label>
-    <p>
-      <%= fish.label :species %>
-      <%= fish.text_field :species %>
-      <%= fish.label :weight %>
-      <%= fish.text_field :weight %>
-      <%= fish.label :length %>
-      <%= fish.text_field :length %>
-    </p>
-  <% end %>
+          <%= fields_for :fly do |fly| %>
+            <label>Fly:</label>
+            <p>
+              <%= fly.label :name %>
+              <%= fly.text_field :name %>
+              <%= fly.label :description %>
+              <%= fly.text_field :description %>
+              <%= fly.label :color %>
+              <%= fly.text_field :color %>
+              <%= fly.label :size %>
+              <%= fly.text_field :size %>
+            </p>
+          <% end %>
 
-  <%= fields_for :fly do |fly| %>
-    <label>Fly:</label>
-    <p>
-      <%= fly.label :name %>
-      <%= fly.text_field :name %>
-      <%= fly.label :description %>
-      <%= fly.text_field :description %>
-      <%= fly.label :color %>
-      <%= fly.text_field :color %>
-      <%= fly.label :size %>
-      <%= fly.text_field :size %>
-    </p>
-  <% end %>
+          <%= fields_for :weather do |w| %>
+            <label>Weather:</label>
+            <p>
+              <%= w.label :temperature %>
+              <%= w.text_field :temperature %>
+              <%= w.label :sky %>
+              <%= w.text_field :sky %>
+              <%= w.label :wind %>
+              <%= w.text_field :wind %>
+              <%= w.label :percipitation %>
+              <%= w.text_field :percipitation %>
+            </p>
+          <% end %>
 
-  <%= fields_for :weather do |w| %>
-    <label>Weather:</label>
-    <p>
-      <%= w.label :temperature %>
-      <%= w.text_field :temperature %>
-      <%= w.label :sky %>
-      <%= w.text_field :sky %>
-      <%= w.label :wind %>
-      <%= w.text_field :wind %>
-      <%= w.label :percipitation %>
-      <%= w.text_field :percipitation %>
-    </p>
-  <% end %>
-
-  <%= fields_for :water do |w| %>
-    <label>Water:</label>
-    <p>
-      <%= w.label :temperature %>
-      <%= w.text_field :temperature %>
-      <%= w.label :flow %>
-      <%= w.text_field :flow %>
-      <%= w.label :clarity %>
-      <%= w.text_field :clarity %>
-    </p>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+          <%= fields_for :water do |w| %>
+            <label>Water:</label>
+            <p>
+              <%= w.label :temperature %>
+              <%= w.text_field :temperature %>
+              <%= w.label :flow %>
+              <%= w.text_field :flow %>
+              <%= w.label :clarity %>
+              <%= w.text_field :clarity %>
+            </p>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

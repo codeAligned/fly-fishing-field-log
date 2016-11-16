@@ -22,15 +22,25 @@
  @import "bootstrap";
 
    body {
-     background-color: #f2f2f2;
+     background-color: #FFFFFF;
        font-family: 'EB Garamond', serif;
        font-weight: 300;
        font-size: 16px;
-       color: #555;
+      //  color: #555;
+       opacity: 0.9;
 
        -webkit-font-smoothing: antialiased;
        -webkit-overflow-scrolling: touch;
    }
+
+   .home {
+     background-color: rgba(4, 45, 1, 0.75);
+     font-family: 'EB Garamond', serif;
+     font-weight: 300;
+     font-size: 16px;
+     text-align: center;
+   }
+
 
    /* Titles */
    h1, h2, h3, h4, h5, h6 {
@@ -41,9 +51,10 @@
 
 
    /* Paragraph & Typographic */
-   p {
+   p, label, li, ol {
        line-height: 28px;
        margin-bottom: 25px;
+       color: #ffffff;
    }
 
    .centered {
@@ -61,6 +72,25 @@
      text-align: center;
      background-color: rgba(4, 45, 1, 0.75);
      border-color: rgba(4, 45, 1, 0.75);
+   }
+
+   .new_report {
+    color: #033f0b;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+   }
+
+
+   textarea {
+     color: #003f0b;
+   }
+
+   input {
+     color: #003f0b;
+   }
+
+   select {
+     color: #003f0b;
    }
 
    a:hover,
@@ -109,7 +139,14 @@
      margin: 0px 12px;
      margin-top: 50px;
      padding-right: 75px;
-     padding-left: 10px;
+     padding-left: 30px;
+     padding-top: 20px;
+     padding-bottom: 30px;
+     background-color: rgba(4, 45, 1, 0.75);
+     font-family: 'EB Garamond', serif;
+     font-color: #FFFFFF;
+     font-weight: 300;
+     font-size: 16px;
    }
 
    .user_profile img {
@@ -118,6 +155,21 @@
   // border-radius: 10px;
   }
 
+  .user-report {
+    text-align: left;
+    float: left;
+    margin: 0px 12px;
+    margin-top: 50px;
+    padding-right: 75px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background-color: rgba(4, 45, 1, 0.75);
+    font-family: 'EB Garamond', serif;
+    font-color: #FFFFFF;
+    font-weight: 300;
+    font-size: 16px;
+  }
 
    /* ==========================================================================
       Wrap Sections

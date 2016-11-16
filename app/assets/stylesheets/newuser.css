@@ -77,7 +77,7 @@ h1 {
 .fs-form-overview .fs-fields::before {
 	display: block;
 	margin-bottom: 2.5em;
-	color: #ffffff;
+	color: #165200;
 	content: 'Review & Submit';
 	font-weight: 700;
 	font-size: 1.85em;
