@@ -19,9 +19,10 @@
         <p><label>Rating:</label> <%= report.rating %></p>
         <p><label>Highlights:</label> <%= report.highlights %></p>
         <p><label>Fish:</label>
-          <% fish = Fish.where(id: report.fish_id) %>
+          <% binding.pry %>
+          <% report.fish.each do |fish| %>
           <li>
-            <label>Species:</label> <%= report.fish.species %>
+            <label>Species:</label> <%= fish.species %>
           </li>
           <li>
             <label>Weight:</label> <%= report.fish.weight %>
@@ -87,3 +88,5 @@
     </body>
   </head>
 </html>
+
+<!-- Refactor this! -->

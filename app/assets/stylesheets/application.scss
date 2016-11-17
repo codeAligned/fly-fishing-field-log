@@ -35,6 +35,7 @@
 
    .home {
      background-color: rgba(4, 45, 1, 0.75);
+     background-size: 100%, 100%;
      font-family: 'EB Garamond', serif;
      font-weight: 300;
      font-size: 16px;
@@ -93,6 +94,57 @@
      color: #003f0b;
    }
 
+  //  Hatch Table
+  .hatch-data {
+    background-color: rgba(4, 45, 1, 0.75);
+  }
+
+  .hatch-table {
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 30px;
+    color: #FFFFFF;
+  }
+
+  #hatch-header {
+    text-align: center;
+    font-size: 23px;
+  }
+
+  #hatch-size {
+    text-align: left;
+  }
+
+  // River Table
+
+  .river-data {
+    background-color: rgba(4, 45, 1, 0.75);
+  }
+
+  .river-table {
+    text-align: left;
+    padding: 40px;
+    padding-bottom: 30px;
+    color: #FFFFFF;
+  }
+
+  #river {
+    text-align: center;
+    font-size: 23px;
+  }
+
+  #river-name {
+    font-weight: bold;
+  }
+
+  #gage-height {
+    text-align: center;
+  }
+
+  #discharge {
+    text-align: center;
+  }
+
    a:hover,
    a:focus {
        color: #7b7b7b;
@@ -133,16 +185,19 @@
    }
 
    .user_profile {
-     width: 30%;
+     width: 50%;
+     background-position: center;
      text-align: left;
      float: left;
-     margin: 0px 12px;
+     margin: 0px 50px;
+     margin-left: 320px;
      margin-top: 50px;
      padding-right: 75px;
      padding-left: 30px;
      padding-top: 20px;
      padding-bottom: 30px;
      background-color: rgba(4, 45, 1, 0.75);
+     background-size: cover;
      font-family: 'EB Garamond', serif;
      font-color: #FFFFFF;
      font-weight: 300;
