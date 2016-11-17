@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   resources :stations, only: [:new, :create, :destroy, :update]
   resources :fish, only: [:new, :create, :destroy, :update]
   resources :flies, only: [:new, :create, :destroy, :update]
-  resources :hatches, only: [:new, :create, :destroy, :update]
+  resources :hatches
   resources :weathers, only: [:new, :create, :destroy, :update]
   resources :waters, only: [:new, :create, :destroy, :update]
   resources :sessions, only: [:new, :create, :destroy]
-  
+
   get '/home' => 'sessions#new', as: 'home'
   get '/logout' => 'sessions#destroy'
   get '/users/:id/reports' => 'reports#userreports', as: 'userreports'

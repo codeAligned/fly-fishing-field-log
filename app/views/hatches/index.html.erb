@@ -1,0 +1,40 @@
+<div class="hatch-data">
+  <br>
+  <br>
+  <h1>Colorado Hatches</h1>
+  <table class="hatch-table">
+    <th id="hatch-header">Bug Type</th>
+    <th id="hatch-header">Name</th>
+    <th id="hatch-header">Color</th>
+    <th id="hatch-header">Dates</th>
+    <th id="hatch-header">Emergence</th>
+    <th id="hatch-header">Size</th>
+    <th id="hatch-header">Spinner Fall</th>
+    <br>
+      <% @hatches.each do |hatch| %>
+        <tr>
+          <td id="hatch-bug">
+            <%= hatch.bug_type %>
+          </td>
+          <td id="hatch-name">
+            <%= hatch.name %>
+          </td>
+          <td id="hatch-color">
+            <%= hatch.color %>
+          </td>
+          <td id="hatch-dates">
+            <%= hatch.dates %>
+          </td>
+          <td id="hatch-emergence">
+            <%= hatch.emergence %>
+          </td>
+          <td id="hatch-size">
+            <%= hatch.size %>
+          </td>
+          <td id="hatch-spinnerfall">
+            <%= hatch.spinner_fall %>
+          </td>
+        </tr>
+      <% end %>
+  </table>
+</div>

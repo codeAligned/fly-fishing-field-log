@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fly Fishing</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+
+  </head>
+  <body>
+
+    <div class="container"  role="main">
+      <div class="row">
+
+        <h1>FLY FISHING FIELD LOG</h1>
+        <br>
+        <div class="col-lg-6 col-lg-offset-3">
+          <a id="sign_in" class="btn btn-primary btn-lg" href="<%= new_user_path %>"/>SIGN IN</a>
+          <a id="sign_in" class="btn btn-primary btn-lg" href="<%= new_user_path %>"/>SIGN UP</a>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
