@@ -4,14 +4,12 @@ class River < ApplicationRecord
   has_many :river_flies
   has_many :flies, through: :river_flies
 
-  def reports(name)
-    river = name.upcase
-    river_name = River.find_by(name: river)
+  def reports
     reports = Report.where(river_id: river_name.id)
   end
 
 
-  def biggest_fish(name)
+  def biggest_fish
     # ie) blue
     # name = blue
     # find all reports that have the name blue as their river. find by the river_id
@@ -23,9 +21,7 @@ class River < ApplicationRecord
     biggest_fish = fish.first
   end
 
-  def stations(name)
-    river = name.upcase
-    river_name = River.find_by(name: river)
+  def stations
     stations = Station.where(river_id: river_name.id)
   end
 
