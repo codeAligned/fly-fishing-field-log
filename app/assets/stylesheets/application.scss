@@ -22,7 +22,7 @@
  @import "bootstrap";
 
    body {
-     background-color: #FFFFFF;
+     background-color: rgba(22, 82, 0, 0.3);
        font-family: 'EB Garamond', serif;
        font-weight: 300;
        font-size: 16px;
@@ -34,7 +34,7 @@
    }
 
    .home {
-     background-color: rgba(4, 45, 1, 0.75);
+     background-color: rgba(22, 82, 0, 0.3);
      background-size: 100%, 100%;
      font-family: 'EB Garamond', serif;
      font-weight: 300;
@@ -71,8 +71,8 @@
    .btn-primary {
      color: #ffffff;
      text-align: center;
-     background-color: rgba(4, 45, 1, 0.75);
-     border-color: rgba(4, 45, 1, 0.75);
+     background-color: rgba(22, 82, 0, 0.3);
+     border-color: rgba(22, 82, 0, 0.3);
    }
 
    .new_report {
@@ -96,7 +96,7 @@
 
   //  Hatch Table
   .hatch-data {
-    background-color: rgba(4, 45, 1, 0.75);
+    background-color: rgba(22, 82, 0, 0.3);
   }
 
   .hatch-table {
@@ -118,7 +118,7 @@
   // River Table
 
   .river-data {
-    background-color: rgba(4, 45, 1, 0.75);
+    background-color: rgba(22, 82, 0, 0.3);
   }
 
   .river-table {
@@ -162,13 +162,13 @@
    // }
 
    .navbar {
-     background: rgba(4, 45, 1, 0.75);
+     background: rgba(22, 82, 0, 0.3);
    }
 
    #custom_nav {
      color: white;
      border-radius: 6px;
-     box-shadow: 0px 0px 10px 2px rgba(4, 45, 1, 0.75);
+     box-shadow: 0px 0px 10px 2px rgba(22, 82, 0, 0.3);
      margin: 0 1px;
    }
 
@@ -219,7 +219,7 @@
     padding-left: 30px;
     padding-top: 20px;
     padding-bottom: 30px;
-    background-color: rgba(4, 45, 1, 0.75);
+    background-color: rgba(22, 82, 0, 0.3);
     font-family: 'EB Garamond', serif;
     font-color: #FFFFFF;
     font-weight: 300;

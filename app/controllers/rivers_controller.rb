@@ -2,7 +2,6 @@ class RiversController < ApplicationController
 
   def index
     @rivers = River.all
-    @stations = Station.all
   end
 
   def show

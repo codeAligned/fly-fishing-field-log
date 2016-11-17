@@ -5,7 +5,7 @@ class River < ApplicationRecord
   has_many :flies, through: :river_flies
 
   def reports
-    reports = Report.where(river_id: river_name.id)
+    reports = Report.where(river_id: self.id)
   end
 
 
@@ -22,7 +22,7 @@ class River < ApplicationRecord
   end
 
   def stations
-    stations = Station.where(river_id: river_name.id)
+    stations = Station.where(river_id: self.id)
   end
 
 
