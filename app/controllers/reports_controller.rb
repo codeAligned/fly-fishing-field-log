@@ -56,7 +56,7 @@ class ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     @report.update(report_params)
-    redirect_to report_path(@report)
+    redirect_to userreports_path(@report.id)
   end
 
   def destroy

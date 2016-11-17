@@ -15,14 +15,12 @@
         <% @reports.each do |report| %>
         <p><label>Name:</label> <%= report.name %></p>
         <p><label>Date:</label> <%= report.date %></p>
-        <p><label>River:</label> <%= report.river_id %></p>
+        <p><label>River:</label> <%= report.river.name %></p>
         <p><label>Rating:</label> <%= report.rating %></p>
         <p><label>Highlights:</label> <%= report.highlights %></p>
         <p><label>Fish:</label>
-          <% binding.pry %>
-          <% report.fish.each do |fish| %>
           <li>
-            <label>Species:</label> <%= fish.species %>
+            <label>Species:</label> <%= report.fish.species %>
           </li>
           <li>
             <label>Weight:</label> <%= report.fish.weight %>
@@ -33,7 +31,6 @@
         </p>
 
         <p><label>Fly:</label>
-          <% fly = Fly.where(id: report.fly_id) %>
           <li>
             <label>Name:</label> <%= report.fly.name %>
           </li>
@@ -49,7 +46,6 @@
         </p>
 
         <p><label>Weather:</label>
-          <% weather = Weather.where(id: report.weather_id) %>
           <li>
             <label>Temperature:</label> <%= report.weather.temperature %>
           </li>
@@ -65,7 +61,6 @@
         </p>
 
         <p><label>Water:</label>
-          <% water = Water.where(id: report.water_id) %>
           <li>
             <label>Temperature:</label> <%= report.water.temperature %>
           </li>
