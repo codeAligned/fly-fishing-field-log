@@ -17,8 +17,12 @@ class River < ApplicationRecord
     biggest_fish = fish.first
   end
 
-  #have biggest 5 fish method?
-  #Rivers with the most reports
+  def most_reports
+    report = Report.group(:river_id).order('count_id DESC').limit(1).count(:id)
+    #this returns {1=>9}
+    river_id = report.first[0]
+    river = self.where(id: river_id)
+  end
 
 
 
